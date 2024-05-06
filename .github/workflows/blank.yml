@@ -31,24 +31,15 @@ jobs:
           registry: registry-1.docker.io
           username: ${{secrets.DOCKERHUBUSERNAME}}
           password: ${{secrets.DOCKERHUBPASSWORD}}
-
-  Logintodockerhub:
-      runs-on: ubuntu-latest
-      environment: QA
-      steps:
-        - uses: actions/checkout@v3
-        - name: docker login
-          uses: docker/login-action@v2.1.0
-          with:
-          registry: registry-1.docker.io
-          username: ${{secrets.DOCKERHUBUSERNAME}}
-          password: ${{secrets.DOCKERHUBPASSWORD}}
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          
+	  Logintodockerhub:
+	    runs-on: ubuntu-latest
+	    environment: QA
+	    steps:
+	      - uses: actions/checkout@v3
+	      - name: docker login
+	        uses: docker/login-action@v2.1.0
+	        with:
+	          registry: registry-1.docker.io
+	          username: ${{secrets.DOCKERHUBUSERNAME}}
+	          password: ${{secrets.DOCKERHUBPASSWORD}}
